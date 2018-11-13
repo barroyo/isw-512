@@ -1,6 +1,7 @@
 body {
 	background-color: #666;
 }
+
 a {
 	text-decoration: none;
 }
@@ -24,7 +25,7 @@ p::first-line {
 	color: white;
 }
 
-p::first-letter{
+p::first-letter {
 
 	font-size: 20px;
 }
@@ -48,6 +49,18 @@ p::selection {
 
 span.required {
 	padding: 5px;
+}
+
+h1 {
+	color: #34EE7F;
+}
+
+div.error_msg {
+	display: none;
+	color: white;
+	background-color: red;
+	border: 1px solid black;
+	padding: 2px;
 }
 
 
