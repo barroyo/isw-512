@@ -3,7 +3,7 @@
  * @param {*} key the key to store
  * @param {*} value the value associated to the key to be stored
  */
-function saveToLocalStorage(key, value) {\
+function saveToLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
   return true;
 }
