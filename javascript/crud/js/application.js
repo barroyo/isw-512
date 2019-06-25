@@ -1,5 +1,7 @@
 'use strict';
 
+var x = 20;
+
 function saveBook() {
 	const title = document.getElementById('title').value;
 	const author = document.getElementById('author').value;
@@ -55,9 +57,10 @@ function loadTableData(tableName) {
  * Binds the different events to the different elements of the page
  */
 function bindEvents() {
-	jQuery('#add-book-button').bind('click', (element) => {
+	jQuery('#add-book-button').bind('click', function (element) {
 		saveBook();
 	});
+
 }
 
 bindEvents();

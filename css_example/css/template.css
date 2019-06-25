@@ -1,0 +1,39 @@
+body {
+	background-color: #666;
+}
+
+span,
+h1 {
+	line-height: 2px;
+}
+
+h1 {
+	color: #fff;
+	text-align: center;
+}
+
+.required {
+	color: red;
+}
+
+input.required {
+	border: 2px solid red;
+}
+
+div.form-general-info span.required {
+	color: blue;
+}
+
+input[type^="ph"] {
+	font-size: 20px;
+}
+
+ul>li>a {
+	color: blue;
+	text-decoration: underline;
+}
+
+ul li a {
+	color: red;
+	text-decoration: underline;
+}
