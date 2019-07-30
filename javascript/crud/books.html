@@ -32,6 +32,18 @@
       <tbody id="books_table">
       </tbody>
     </table>
+    <div class="d-flex flex-column hidden">
+      <h1>Edit book</h1>
+      <div class="form-contact-info">
+        <div class="error_msg" id="error_msg"></div>
+        <form id="book-form">
+          <input type="text" name="title" value="" placeholder="Type book title" class="required" id="editTitle" />
+          <input type="text" name="author" value="" placeholder="Type your author" class="required" id="editAuthor" />
+          <input type="hidden" name="id" value="" id="editId" />
+          <input type="button" value="Save" id="save-book-button" />
+        </form>
+      </div>
+    </div>
   </section>
   <script src="js/database.js" type="text/javascript"></script>
   <script src="js/application.js" type="text/javascript"></script>
