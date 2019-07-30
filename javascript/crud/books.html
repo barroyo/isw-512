@@ -8,8 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- External CSS -->
   <link rel="stylesheet" href="css/template.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       <h1>Add new book</h1>
       <div class="form-contact-info">
         <div class="error_msg" id="error_msg"></div>
-        <form method="post">
+        <form id="book-form">
           <input type="text" name="title" value="" placeholder="Type book title" class="required" id="title" />
           <input type="text" name="author" value="" placeholder="Type your author" class="required" id="author" />
           <input type="button" value="Add" id="add-book-button" />
@@ -38,6 +38,7 @@
 
   <script>
     loadTableData('books');
+    bindEvents();
   </script>
 </body>
 

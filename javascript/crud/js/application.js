@@ -5,16 +5,32 @@ var x = 20;
 function saveBook() {
 	const title = document.getElementById('title').value;
 	const author = document.getElementById('author').value;
+	const booksKey = 'books';
 
+	// create the book object
 	const book = {
 		title,
 		author
 	};
 
-	const books = insertToTable('books', book);
+	// add it to the database
+	let books = JSON.parse(localStorage.getItem(booksKey));
+	if (books && books.length > 0) {
+		books.push(book);
+	} else {
+		books = []
+		books.push(book)
+	}
+	localStorage.setItem(booksKey, JSON.stringify(books));
 
+	clearFields();
 	// render the books
 	renderTable('books', books);
+}
+
+function clearFields() {
+	document.getElementById('title').value = '';
+	document.getElementById('author').value = '';
 }
 
 
@@ -37,7 +53,6 @@ function renderTable(tableName, tableData) {
 }
 
 function editEntity(element) {
-	debugger;
 	const dataObj = jQuery(element).data();
 	editElement(dataObj.entity, dataObj.id);
 }
@@ -60,7 +75,4 @@ function bindEvents() {
 	jQuery('#add-book-button').bind('click', function (element) {
 		saveBook();
 	});
-
 }
-
-bindEvents();
