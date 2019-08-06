@@ -1,8 +1,12 @@
 'use strict';
 
-const booksKey = 'books';
-var x = 20;
+const BOOKSKEY = 'books';
+const AUTHORSKEY = 'authors';
 
+/**
+ *  Inserts a new book to the books array in localstorage
+ *
+ */
 function insertBook() {
 	const title = document.getElementById('title').value;
 	const author = document.getElementById('author').value;
@@ -24,17 +28,18 @@ function insertBook() {
 	};
 
 	// add it to the database
-	let books = JSON.parse(localStorage.getItem(booksKey));
+	let books = JSON.parse(localStorage.getItem(BOOKSKEY));
 	if (books && books.length > 0) {
 		books.push(book);
 	} else {
-		books = []
-		books.push(book)
+		books = [];
+		books.push(book);
 	}
-	localStorage.setItem(booksKey, JSON.stringify(books));
+	localStorage.setItem(BOOKSKEY, JSON.stringify(books));
 
 	clearFields();
 	// render the books
+	debugger;
 	renderTable('books', books);
 }
 
@@ -50,21 +55,23 @@ function saveBook() {
 		author,
 		id
 	};
-	debugger;
 	// add it to the database
-	let books = JSON.parse(localStorage.getItem(booksKey));
+	let books = JSON.parse(localStorage.getItem(BOOKSKEY));
 	let results = books.filter(book => book.id != id);
 	results.push(book);
-	localStorage.setItem(booksKey, JSON.stringify(results));
+	localStorage.setItem(BOOKSKEY, JSON.stringify(results));
 
 	clearFields();
 	// render the books
-	renderTable('books', books);
+	renderTable('books', results);
 }
 
 function clearFields() {
 	document.getElementById('title').value = '';
 	document.getElementById('author').value = '';
+	document.getElementById('editAuthor').value = '';
+	document.getElementById('editTitle').value = '';
+	document.getElementById('editId').value = '';
 }
 
 
@@ -75,11 +82,15 @@ function clearFields() {
  * @param tableData
  */
 function renderTable(tableName, tableData) {
+	debugger;
 	let table = jQuery(`#${tableName}_table`);
 	// loop through all the items of table and generates the html
 	let rows = "";
 	tableData.forEach((book, index) => {
-		let row = `<tr><td>${book.title}</td><td>${book.author}</td>`;
+		let row = `<tr>`;
+		row += `<td>${book.title}</td>`;
+		row += `<td>${book.author}</td>`;
+		row += `<td>${book.id}</td>`;
 		row += `<td> <a onclick="editEntity(this)" data-id="${book.id}" data-entity="${tableName}" class="link edit">Edit</a>  |  <a  onclick="deleteEntity(this);" data-id="${book.id}" data-entity="${tableName}" class="link delete">Delete</a>  </td>`;
 		rows += row + '</tr>';
 	});
@@ -88,8 +99,7 @@ function renderTable(tableName, tableData) {
 
 function editEntity(element) {
 	const dataObj = jQuery(element).data();
-
-	let books = JSON.parse(localStorage.getItem(booksKey));
+	let books = JSON.parse(localStorage.getItem(BOOKSKEY));
 	let bookFound;
 	books.forEach(function (book) {
 		if (book.id == dataObj.id) {
@@ -106,13 +116,31 @@ function editEntity(element) {
 
 
 function deleteEntity(element) {
-	const dataObj = jQuery(element).data();
-	const newEntities = deleteFromTable(dataObj.entity, dataObj.id);
-	renderTable(dataObj.entity, newEntities);
+
+	if (confirm('Are you sure you want to delete?')) {
+		const dataObj = jQuery(element).data();
+		// const newEntities = deleteFromTable(dataObj.entity, dataObj.id);
+
+		let books = JSON.parse(localStorage.getItem(BOOKSKEY));
+		let results = books.filter(book => book.id != dataObj.id);
+		localStorage.setItem(BOOKSKEY, JSON.stringify(results));
+		renderTable(dataObj.entity, results);
+	}
 }
 
 function loadTableData(tableName) {
 	renderTable(tableName, getTableData(tableName));
+}
+
+function loadAuthorsData() {
+	let authors = JSON.parse(localStorage.getItem(AUTHORSKEY));
+	const authorsList = jQuery('#authors-list');
+
+	let itemsHtml = '';
+	authors.forEach(author => {
+		itemsHtml += `<option value="${author.id}">${author.name} ${author.lastname}</option>`;
+	})
+	authorsList.html(itemsHtml);
 }
 
 
@@ -128,3 +156,7 @@ function bindEvents() {
 		saveBook();
 	});
 }
+
+loadTableData('books');
+loadAuthorsData();
+bindEvents();
