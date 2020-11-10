@@ -10,21 +10,33 @@
 
 </head>
 
+<style>
+	#wrapper {
+		width: 400px;
+		border: 1px solid green;
+	}
+
+	.box-model {
+		border: 1px solid red;
+		width: 200px;
+	}
+</style>
+
 <body>
 
 	<div id="wrapper">
-		<div id="box-model">
-			<!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
-			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod. -->
+		<div class="box-model left">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
+			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod.
 		</div>
-		<div id="box-model">
-			<!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
-			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod. -->
+		<div class="box-model right">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
+			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod.
 		</div>
 	</div>
 
-	<!-- <h1>Test form</h1>
-	<div class=" form-contact-info">
+	<!-- <h1>Test form</h1> -->
+	<!-- <div class=" form-contact-info">
 		<form action="formulario.php" method="post">
 			<div class="input-required">
 				<input type="text" name="first_name" value="" placeholder="Type your name" class="required" />
@@ -34,9 +46,9 @@
 			</div>
 			<input type="submit" value="Send" />
 		</form>
-	</div>
+	</div> -->
 
-	<div class="form-general-info">
+	<!-- <div class="form-general-info">
 		<form action="formulario.php" method="post" class="form">
 			<input type="phone" name="phone" value="" placeholder="Type your Phone" class="required" />
 			<span class="required">*</span>
@@ -46,18 +58,21 @@
 		<ul>
 			<li>
 				<a href="#">Uno</a>
-				<a href="#">Dos</a>
+				<p>
+					<a href="#">Dos</a>
+				</p>
 			</li>
 			<li>
 				<a href="#">Tres</a>
 			</li>
 			<li>
 				<div>
-					<a ref="">Cuatro</a>
+					<a href="">Cuatro</a>
 				</div>
 			</li>
 		</ul>
 	</div> -->
+
 </body>
 
 </html>

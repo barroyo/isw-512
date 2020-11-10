@@ -9,7 +9,7 @@ body {
 	background-color: var(--secondary-color)
 }
 
-div#wrapper {
+/* div#wrapper {
 	width: 600px;
 	border: var(--main-border-style);
 }
@@ -20,14 +20,14 @@ div#box-model {
 	margin: 10px;
 	padding: 10px;
 	border: var(--strong-border-style);
-}
+} */
 
 .input-required::after {
 	content: 'as;alks;lak;lksa';
 	color: red;
 }
 
-/* span,
+span,
 h1 {
 	line-height: 2px;
 }
@@ -36,7 +36,6 @@ h1 {
 	color: #fff;
 	text-align: center;
 }
-
 
 .required {
 	color: red;
@@ -55,11 +54,11 @@ input[type^="ph"] {
 }
 
 ul>li>a {
-	color: blue;
-	text-decoration: underline;
+	color: red;
+	text-decoration: none;
 }
 
-ul li a {
+/* ul li a {
 	color: red;
 	text-decoration: underline;
 } */
