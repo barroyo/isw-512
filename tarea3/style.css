@@ -1,0 +1,36 @@
+body {
+  margin: 10%;
+}
+.bold {
+  font-weight: 900;
+}
+
+.red {
+  color: red;
+}
+
+img.logo {
+  width: 200px;
+}
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+p.italic {
+  font-style: italic;
+}
+.data-table {
+  width: 100%;
+  border-spacing: 0;
+}
+.data-table th {
+  background-color: black;
+  color: white;
+  text-align: left;
+}
+.data-table td {
+  border: 1px solid black;
+  height: 20px;
+}
