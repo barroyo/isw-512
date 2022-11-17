@@ -11,9 +11,15 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/template.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body>
+  <nav>
+    <span>Hola: <span id="user"></span></span>
+
+    <a href="#" onclick="logOut()">Log out</a>
+  </nav>
   <section>
     <div class="d-flex flex-column">
       <h1>Add new book</h1>
@@ -58,6 +64,15 @@
       document.getElementById('book-form').reset();
     }
 
+    function logOut(){
+      sessionStorage.clear();
+      window.location.href = "/login.html";
+    }
+
+
+    function editBook(bookId) {
+      window.location.href = `/javascript/crud/editBook.html?id=${bookId}`;
+    }
 
     function loadEvents(){
       // bind the click event to all edit buttons
@@ -101,9 +116,11 @@
     function loadAuthors(){
       const authors = JSON.parse(localStorage.getItem('authors'));
       const authorsList = document.getElementById('authors-list');
-      authors.forEach(author =>{
-        authorsList.innerHTML= authorsList.innerHTML + `<option value="${author.id}">${author.name}</option>`;
-      });
+      if(authors) {
+        authors.forEach(author =>{
+          authorsList.innerHTML= authorsList.innerHTML + `<option value="${author.id}">${author.name}</option>`;
+        });
+      }
     }
 
     function loadBooks() {
@@ -111,11 +128,14 @@
       const books = JSON.parse(localStorage.getItem('books'));
       //loop the list of books
       document.getElementById('books-table').innerHTML = '';
-      books.forEach(book => {
-        //add book row to the table
-        const bookRow = `<tr><td>${book.id}</td><td>${book.name}</td><td> <a href="#" data-bookid="${book.id}" class="edit-button">Edit</a> | <a data-bookid="${book.id}" class="delete-button" href="#">Delete</a></td></tr>`;
-        document.getElementById('books-table').innerHTML = document.getElementById('books-table').innerHTML + bookRow;
-      });
+      if(books){
+        books.forEach(book => {
+          //add book row to the table
+          const bookRow = `<tr><td>${book.id}</td><td>${book.name}</td>
+                      <td><a href="#" data-bookid="${book.id}" class="edit-button">Edit</a> | <a data-bookid="${book.id}" class="delete-button" href="#">Delete</a></td></tr>`;
+          document.getElementById('books-table').innerHTML = document.getElementById('books-table').innerHTML + bookRow;
+        });
+      }
     }
     loadBooks();
     loadEvents();
@@ -163,6 +183,16 @@
     //   addBook();
     // });
     // loadAuthors();
+
+
+  </script>
+  <script>
+    const loggedInUser = JSON.parse(sessionStorage.getItem('user'));
+    if(!loggedInUser){
+      window.location.href = "/login.html";
+    } else {
+      document.getElementById('user').innerHTML = loggedInUser.name;
+    }
   </script>
 </body>
 
