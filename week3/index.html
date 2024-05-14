@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Testing Form</title>
+	<!-- External CSS -->
+	<link rel="stylesheet" href="css/template.css" type="text/css">
+	<!-- Internal CSS -->
+
+	<style>
+		#wrapper {
+			width: 400px;
+			border: 1px solid green;
+		}
+
+		.box-model {
+			/* border: 1px solid red; */
+			width: 49%;
+			display: inline-block;
+			vertical-align: top;
+			/* margin: 0px; */
+			/* padding: 0px; */
+			/* border: 0px; */
+		}
+
+		div#wrapper .box-model::after {
+			content: "...continuará";
+		}
+
+		div#wrapper .box-model::before {
+			content: "Había una vez...";
+			color: red;
+		}
+
+		h1 {
+			color: blue;
+		}
+
+
+	</style>
+
+</head>
+<body>
+
+	<div id="wrapper">
+		<div class="box-model left">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
+			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod.
+		</div>
+		<div class="box-model right" style="font-size:14px; color: green; ">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quis aperiam quas recusandae tempora ad, neque
+			facere eius? Unde inventore ad fugit adipisci impedit suscipit enim ex amet nulla quod.
+		</div>
+	</div>
+
+	<h1 style="color: red;">Test form</h1>
+	<div class=" form-contact-info">
+		<form action="formulario.php" method="post">
+			<div class="input-required">
+				<input type="text" name="first_name" value="" placeholder="Type your name" required="true" />
+			</div>
+			<div class="input-required">
+				<input type="email" name="email" value="" placeholder="Type your email" required="true" />
+			</div>
+			<div class="input-required">
+				<input type="text" name="email" value="" placeholder="Type your email"/>
+			</div>
+			<input type="submit" value="Send" />
+		</form>
+	</div>
+
+	<div class="form-general-info">
+		<form action="formulario.php" method="post" class="form">
+			<input type="phone" name="phone" value="" placeholder="Type your Phone" class="required" />
+			<span class="required">*</span>
+		</form>
+
+
+		<ul>
+			<li>
+				<a href="#">Uno</a>
+				<p>
+					<a href="#">Dos</a>
+				</p>
+			</li>
+			<li>
+				<a href="#">Tres</a>
+			</li>
+			<li>
+				<div>
+					<a href="">Cuatro</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</body>
+
+</html>

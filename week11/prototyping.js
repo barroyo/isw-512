@@ -12,9 +12,16 @@ Person.prototype.calculateHeight = function () {
   return this.age * 3;
 };
 
+Person.prototype.country = 'Costa Rica';
+
+Person.prototype.getCountry = function () {
+  return this.country;
+};
 
 const bladimir = new Person('Bladimir', 'Arroyo', 23);
 const weight = bladimir.calculateWeight();
 const height = bladimir.calculateHeight();
 
-console.log('his weight is:', weight, ' and height is:', height);
+// console.log(bladimir.getCountry());
+
+// console.log('his weight is:', weight, ' and height is:', height);

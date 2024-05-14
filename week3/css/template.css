@@ -1,0 +1,83 @@
+:root {
+	--primary-color: #eee50c;
+	--secondary-color: white;
+	--main-border-style: 1px solid var(--primary-color);
+	--strong-border-style: 5px solid var(--primary-color);
+}
+
+body {
+	background-color: var(--secondary-color)
+}
+
+div#wrapper {
+	width: 700px;
+	border: var(--main-border-style);
+	padding: 0px;
+	margin: 0px;
+}
+
+div#box-model {
+	width: 250px;
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	border: var(--strong-border-style);
+}
+
+.input-required::after {
+	content: '* Required';
+	color: var(--primary-color);
+}
+
+input:focus {
+	border: 2px solid var(--primary-color);
+}
+
+a:hover {
+	border: 2px solid var(--secondary-color);
+}
+
+input[type="text"] {
+	border: 1px solid black;
+}
+span,
+h1 {
+	line-height: 2px;
+}
+
+h1 {
+	color: #cf9623;
+	text-align: center;
+}
+
+.required {
+	color: red;
+}
+
+input.required {
+	border: 2px solid red;
+}
+
+div.form-general-info span.required {
+	color: blue;
+}
+
+input[type^="ph"] {
+	font-size: 20px;
+}
+
+ul>li>a {
+	color: red;
+	text-decoration: none;
+}
+
+/* ul li a {
+	color: red;
+	text-decoration: underline;
+} */
+
+@media only screen and (max-width: 600px) {
+	:root {
+		--primary-color: green;
+	}
+}

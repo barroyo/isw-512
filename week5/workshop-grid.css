@@ -1,0 +1,141 @@
+#mobile-nav-menu{
+  display: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto;
+    /* padding: 10px; */
+    /* margin: 10px; */
+    width: 100%;
+    gap: 20px;
+}
+
+.cuadrante1{
+    background-color: #ffeb3b;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    grid-column: 1/12;
+    grid-row: 1;
+}
+
+
+.cuadrante2
+{
+    background-color: orangered;
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    grid-column: 1/3;
+    position: relative;
+    height: max-content;
+    grid-row: 3/6;
+}
+
+
+.cuadrante3
+{
+    background-color: blue;
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    grid-column: 3/9;
+    width: auto;
+    color: white;
+    grid-row: 3/8;
+}
+
+.cuadrante4
+{
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px;
+    grid-column: 9/12;
+    color: white;
+    text-align: center;
+    grid-row: 3/5;
+}
+
+.cuadrante5
+{
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    grid-column: 9/12;
+    color: white;
+    float: left;
+    grid-row: 5/12
+}
+
+footer
+{
+    background-color: pink;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    grid-column: 1/12;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+  #desktop-nav-menu {
+    display: none;
+  }
+
+  #mobile-nav-menu{
+    display: block;
+  }
+  .grid-container {
+    gap:10px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .cuadrante1 {
+    grid-row: 1;
+  }
+  .cuadrante2
+  {
+      width: 100%;
+      grid-column: 1/12;
+      grid-row: 2;
+  }
+
+  .cuadrante3
+  {
+      width: 100%;
+      grid-column: 1/12;
+      grid-row: 3;
+  }
+
+  .cuadrante4
+  {
+      width: 100%;
+      grid-column: 1/12;
+      grid-row: 4;
+  }
+  .cuadrante4
+  {
+      width: 100%;
+      grid-column: 1/12;
+      grid-row: 5;
+  }
+  .cuadrante5
+  {
+      width: 100%;
+      grid-column: 1/12;
+      grid-row: 6;
+  }
+
+  footer {
+    width: 100%;
+    grid-column: 1/12;
+    grid-row: 7;
+  }
+
+}

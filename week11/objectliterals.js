@@ -7,10 +7,14 @@ const Person = {
   },
   setAge: function (newAge) {
     this.age = newAge;
+  },
+  save: function() {
+    localStorage.setItem('prueba', JSON.stringify(this));
   }
 }
 
 
 Person.setAge(40);
+Person.save();
 const r = Person.calculateWeight();
 console.log('The weight is:', r);
