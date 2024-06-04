@@ -1,5 +1,6 @@
 :root {
-	--primary-color: #eee50c;
+	--primary-color: #118bdc;
+	--important-color: #dc3611;
 	--secondary-color: white;
 	--main-border-style: 1px solid var(--primary-color);
 	--strong-border-style: 5px solid var(--primary-color);
@@ -25,8 +26,8 @@ div#box-model {
 }
 
 .input-required::after {
-	content: '* Required';
-	color: var(--primary-color);
+	content: '*';
+	color: var(--important-color);
 }
 
 input:focus {
@@ -40,8 +41,8 @@ a:hover {
 input[type="text"] {
 	border: 1px solid black;
 }
-span,
-h1 {
+
+span, h1 {
 	line-height: 2px;
 }
 
@@ -51,11 +52,11 @@ h1 {
 }
 
 .required {
-	color: red;
+	color: var(--primary-color);
 }
 
 input.required {
-	border: 2px solid red;
+	border: 2px solid var(--primary-color);
 }
 
 div.form-general-info span.required {
@@ -67,14 +68,26 @@ input[type^="ph"] {
 }
 
 ul>li>a {
-	color: red;
+	color: var(--primary-color);
 	text-decoration: none;
 }
+div#wrapper p::first-letter {
+	color: var(--important-color);
+	font-size: 40px;
+}
 
-/* ul li a {
-	color: red;
-	text-decoration: underline;
-} */
+div#wrapper p::selection {
+	color: inherit;
+	font-size: 40px;
+}
+div#wrapper p::after {
+	content: "...continuará";
+}
+
+div#wrapper p::before {
+	content: "Había una vez...";
+	color: var(--primary-color);
+}
 
 @media only screen and (max-width: 600px) {
 	:root {
