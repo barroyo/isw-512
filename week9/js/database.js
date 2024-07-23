@@ -4,7 +4,13 @@
  * @param {*} value the value associated to the key to be stored
  */
 function saveToLocalStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  let list = JSON.parse(localStorage.getItem(key))
+  if(!list){
+    list = [];
+  }
+  list.push(value);
+
+  localStorage.setItem(key, JSON.stringify(list));
   return true;
 }
 

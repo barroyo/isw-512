@@ -16,11 +16,11 @@ function validateUser() {
 }
 
 function saveUser() {
-	var username = document.getElementById('username').value;
-	var firstname = document.getElementById('firstname').value;
-	var password = document.getElementById('password').value;
+	const username = document.getElementById('username').value;
+	const firstname = document.getElementById('firstname').value;
+	const password = document.getElementById('password').value;
 
-	var user = {
+	const user = {
 		username,
 		firstname,
 		password
@@ -35,8 +35,8 @@ function saveUser() {
  * Binds the different events to the different elements of the page
  */
 function bindEvents() {
-	document.getElementById('login-button').addEventListener('click', loginButtonHandler);
-	// document.getElementById('register-button').addEventListener('click', registerButtonHandler);
+	// document.getElementById('login-button').addEventListener('click', loginButtonHandler);
+	document.getElementById('register-button').addEventListener('click', registerButtonHandler);
 	// jQuery('#login-button').bind('click', loginButtonHandler);
 	// jQuery('#register-button').bind('click', registerButtonHandler);
 }
@@ -45,8 +45,8 @@ function loginButtonHandler(element) {
 	validateUser();
 }
 
-// function registerButtonHandler(element) {
-// 	saveUser();
-// }
+function registerButtonHandler(element) {
+	saveUser();
+}
 
 bindEvents();
