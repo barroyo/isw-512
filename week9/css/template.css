@@ -1,5 +1,6 @@
 body {
-	background-color: #666;
+	background-color:  rgb(81, 76, 81);
+
 }
 
 a {
@@ -51,9 +52,6 @@ span.required {
 	padding: 5px;
 }
 
-h1 {
-	color: #34EE7F;
-}
 
 div.error_msg {
 	display: none;
