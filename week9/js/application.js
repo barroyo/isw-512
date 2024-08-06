@@ -16,13 +16,37 @@ function validateUser() {
 }
 
 
+function loadUser() {
+	// look for the username from the querystring
+	const urlParams = new URLSearchParams(window.location.search);
+	username = urlParams.get('u');
+	if (username) {
+		//loop through the user's array
+		const users = getFromLocalStorage('users');
+		let matcheduser = '';
+		users.forEach((user) => {
+			//find the user that matches the username
+			if(user.username === username){
+				matcheduser = user;
+				return;
+			}
+		 });
+
+		//fill the edit form with the user values
+		document.getElementById('username').value = matcheduser.username;
+		document.getElementById('firstname').value = matcheduser.firstname;
+		document.getElementById('password').value = matcheduser.password;
+
+	}
+}
+
 function loadUsers() {
 	// loop the users in localstorage
 	const users = getFromLocalStorage('users');
-	users.forEach(user => {
+	users.forEach((user,index) => {
 		// add each user to the the existing table
 		const table = document.getElementById("user-table-rows");
-		table.innerHTML =  `<tr><th scope="row">1</th><td>${user.firstname}</td><td>${user.username}</td><td>${user.type}</td><td> <a href="">Edit</a> | <a href="">Delete</a></td></tr>`
+		table.innerHTML +=  `<tr><th scope="row">${index}</th><td>${user.firstname}</td><td>${user.username}</td><td>${user.type}</td><td> <a href="./edit_user.html?u=${user.username}">Edit</a> | <a href="">Delete</a></td></tr>`
 	});
 
 }
@@ -40,7 +64,7 @@ function saveUser() {
 
 	if (saveToLocalStorage('users', user)) {
 		alert('User saved');
-		//redirect to dashboard
+		document.location.href = "./dashboard.html";
 	} else {
 		alert('There was an error registering the user');
 	}
@@ -65,6 +89,3 @@ function loginButtonHandler(element) {
 function registerButtonHandler(element) {
 	saveUser();
 }
-
-bindEvents();
-loadUsers();
