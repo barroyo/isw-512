@@ -43,12 +43,18 @@ input[type="text"] {
 }
 
 span, h1 {
-	line-height: 2px;
+	/* line-height: 2px; */
 }
 
 h1 {
 	color: #cf9623;
 	text-align: center;
+	border: 2px solid red;
+	padding: 20px;
+	margin: 10px;
+	/* margin-left: 15px; */
+	/* margin-right: 15px; */
+	/* margin-bottom: 10px; */
 }
 
 .required {
