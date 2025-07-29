@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="JS/app.js"></script>
+  <script src="JS/users.js"></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>User List</h1>
+      <h2>List of users of the application</h2>
+    </header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="users.html">User</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <select id="nave_menu_mobile">
+          <option value="en">Home</option>
+          <option value="es">About</option>
+          <option value="fr">Services</option>
+        </select>
+      </nav>
+      <div class="main_content">
+        <h3>User List</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="user_list">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2023 Responsive Example. All rights reserved.</p>
+    </footer>
+  </main>
+</body>
+
+</html>
